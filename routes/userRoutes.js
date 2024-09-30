@@ -1,48 +1,48 @@
 const express = require("express");
 const {
-    getUsers,
-    createUser,
-    updateUser,
-    deleteUser,
+  getUsers,
+  createUser,
+  updateUser,
+  deleteUser,
 } = require("../controllers/userController");
 const {
-    authMiddleware,
-    adminMiddleware,
-    secretaryMiddleware,
-    directorMiddleware,
-    assistdirectorMiddleware,
+  authMiddleware,
+  adminMiddleware,
+  secretaryMiddleware,
+  directorMiddleware,
+  assistdirectorMiddleware,
 } = require("../middleware/authMiddleware");
 const router = express.Router();
 
 router.get(
-    "/",
-    authMiddleware,
-    adminMiddleware,
-    secretaryMiddleware,
-    directorMiddleware,
-    assistdirectorMiddleware,
-    getUsers
+  "/",
+
+  adminMiddleware,
+  secretaryMiddleware,
+  directorMiddleware,
+  assistdirectorMiddleware,
+  getUsers
 );
 router.post(
-    "/",
-    authMiddleware,
-    adminMiddleware,
-    secretaryMiddleware,
-    createUser
+  "/",
+
+  adminMiddleware,
+  secretaryMiddleware,
+  createUser
 );
 router.put(
-    "/:id",
-    authMiddleware,
-    adminMiddleware,
-    secretaryMiddleware,
-    updateUser
+  "/:id",
+
+  adminMiddleware,
+  secretaryMiddleware,
+  updateUser
 );
 router.delete(
-    "/:id",
-    authMiddleware,
-    adminMiddleware,
-    secretaryMiddleware,
-    deleteUser
+  "/:id",
+
+  adminMiddleware,
+  secretaryMiddleware,
+  deleteUser
 );
 
 module.exports = router;
