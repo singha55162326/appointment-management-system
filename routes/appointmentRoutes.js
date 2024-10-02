@@ -13,7 +13,13 @@ const {
 const router = express.Router();
 
 router.post("/appointments", authMiddleware, createAppointment);
-router.get("/appointments", authMiddleware, getAppointments);
+router.get(
+  "/appointments",
+  authMiddleware,
+  adminMiddleware,
+  secretaryMiddleware,
+  getAppointments
+);
 router.put(
   "/appointments/:id",
   authMiddleware,
